@@ -6,18 +6,30 @@ namespace MoodAnalyzerTest
     public class Tests
     {
         [Test]
-        public void GivenInputString_WhenTestAnalyseMood_ShouldReturnSad()
+        public void GivenInputIsString_WhenTestMoodAnalyzer_ShouldReturnReturnEmpty()
         {
-            MoodAnalyzer analyzer = new MoodAnalyzer("I am Sad");
-            string actual = analyzer.AnalyseMood();
-            Assert.AreEqual(actual, "sad");
-        } 
+            try
+            {
+                MoodAnalyzer analyse = new MoodAnalyzer("");
+                string actual = analyse.AnalyzeMood();
+            }
+            catch (MoodAnalyzerException ex)
+            {
+                Assert.AreEqual(ex.Message, "message is Empty");
+            }
+        }
         [Test]
-        public void GivenInputString_WhenTestAnalyseMood_ShouldReturnHappy()
+        public void GivenInputIsString_WhenTestMoodAnalyzer_ShouldReturnReturnNull()
         {
-            MoodAnalyzer analyzer = new MoodAnalyzer("I am Happy");
-            string actual = analyzer.AnalyseMood();
-            Assert.AreEqual(actual, "happy");
+            try
+            {
+                MoodAnalyzer analyse = new MoodAnalyzer(null);
+                string actual = analyse.AnalyzeMood();
+            }
+            catch (MoodAnalyzerException ex)
+            {
+                Assert.AreEqual(ex.Message, "message is null");
+            }
         }
     }
 }
