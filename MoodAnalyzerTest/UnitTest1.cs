@@ -35,7 +35,7 @@ namespace MoodAnalyzerTest
         public void GivenMoodAnalyzer_MoodAnalyseObject()
         {
             object expected = new MoodAnalyzer();
-            object obj = MoodAnalyzerFactory.CreateMoodAnalyse("MoodAnalyzerProblems.MoodAnalyzer", "MoodAnalyzer");
+            object obj = MoodAnalyzerFactory.CreateMoodAnalyse("MoodAnalyzerPrograms.MoodAnalyzer", "MoodAnalyzer");
             expected.Equals(obj);
         }
     }
