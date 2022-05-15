@@ -19,7 +19,7 @@ namespace MoodAnalyzerTest
             }
         }
         [Test]
-        public void GivenInputIsString_WhenTestMoodAnalyzer_ShouldReturnReturnNull()
+        public void GivenInputString_WhenTestMoodAnalyzer_ShouldReturnReturnNull()
         {
             try
             {
@@ -30,6 +30,13 @@ namespace MoodAnalyzerTest
             {
                 Assert.AreEqual(ex.Message, "message is null");
             }
+        }
+        [Test]
+        public void GivenMoodAnalyzer_MoodAnalyseObject()
+        {
+            object expected = new MoodAnalyzer();
+            object obj = MoodAnalyzerFactory.CreateMoodAnalyse("MoodAnalyzerProblems.MoodAnalyzer", "MoodAnalyzer");
+            expected.Equals(obj);
         }
     }
 }
